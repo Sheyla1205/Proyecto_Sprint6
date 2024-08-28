@@ -23,7 +23,7 @@ if hist_button:  # al hacer clic en el botón
 if disp_button:
     st.write(
         'Creación de un grafico de dispersión para el conjunto de datos de año de moledo de coches')
-    fig = px.histogram(car_data, x="odometer")
+    fig = px.scatter(car_data, x='odometer', y='days_listed')
     st.plotly_chart(fig, use_container_width=True)
 
 build_histogram = st.checkbox('Construir un histograma')
@@ -32,7 +32,7 @@ build_scatter = st.checkbox('Construir un grafico de dispersión')
 
 if build_histogram:  # si la casilla de verificación está seleccionada
     st.write('Construir un histograma para la columna odómetro')
-    fig = px.scatter(car_data, x='odometer', y='days_listed')
+    fig = px.histogram(car_data, x="odometer")
     st.plotly_chart(fig, use_container_width=True)
 
 if build_scatter:
